@@ -18,7 +18,7 @@ router.post("/register", (req, res) => {
     const password = req.body.password
 
     userModel.findOne({username:username}).then( user => {
-        if(!user){
+        if(user){
             res.status("400").json({
                 success:false,
                 msg:"Username exit"
@@ -34,7 +34,10 @@ router.post("/register", (req, res) => {
 
                 res.status(201).json({
                     success:true,
-                    user:user,
+                    user:{
+                        _id:user._id,
+                        username:user.username,
+                    },
                     credential:tokenData
                 })
             })
