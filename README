@@ -1,0 +1,20 @@
+---- JWT Authentication ---
+
+----  TO RUN THIS PROJECT  ----
+
+
+
+- To run this project you need to have *docker* running on your machine!!!
+  go to https://www.docker.com/ to install it if you haven't 
+
+- Open terminal, navigate to the project root location
+
+- Run file "genKeyPair.js" once to generate a key pair. 
+
+- run the command "docker-compose build"
+
+- run the command "docker-compose up"
+
+
+
+----  Best Regards - Ta Quang Vo  ----
