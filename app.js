@@ -1,7 +1,7 @@
 const { urlencoded } = require("express")
 const express = require("express")
 const {userModel} = require("./database")
-const routes = require("./routes/routes")
+const userRouter = require("./routes/routes")
 
 
 
@@ -30,7 +30,7 @@ app.get("/", (req,res)=>{
 })
 
 
-app.use("/user", routes)
+app.use("/user", userRouter)
 
 
 
