@@ -31,12 +31,10 @@ const validateToken = (token) => {
     try {
         const verification = jsonWebToken.verify(token,PUB_KEY,{algorithms:"RS256"})
         return verification;
-
     } catch (err) {
         console.log(err)
         return false
     }
-
 }
 
 const issueJWT = (user) => {

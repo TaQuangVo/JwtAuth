@@ -2,41 +2,11 @@ const express = require("express")
 const { Mongoose } = require("mongoose")
 const {generateHashedAndSalt, issueJWT, validateToken, validatePassword} = require("../auth/helper-functions")
 const {userModel} = require("../database")
+const {AuthenticateUser} = require("../middlewares/auth")
 
 
 const userRouter = express.Router()
 
-
-
-
-
-/**
- * midlewares
- */
-const AuthenticateUser = (req,res,next) => {
-    const tokenParts = req.headers.authorization.split(" ");
-
-    if (tokenParts[0] === 'Bearer' && tokenParts[1].match(/\S+\.\S+\.\S+/) !== null) {
-    
-        const isTokenValid = validateToken(tokenParts[1]);
-
-        if(isTokenValid){
-            req.jwt = isTokenValid
-            next()
-        }else{
-            res.status(401).json({
-                success:false,
-                msg:"Invalid token"
-            })
-        }
-    }else{
-        res.status(401).json({
-            success:false,
-            msg:"Invalid token"
-        })
-    }
-
-}
 
 
 /**
